@@ -1,0 +1,14 @@
+clc;clear all;
+theta = 45*pi/180;
+r = 0.9;
+w = -pi:pi/100:pi;
+den = 1 - (2*r*cos(theta)*exp(-j*w)) + ((r^2)*exp(-j*2*w));
+G = 1./den;
+subplot(221),plot(w,real(G));
+title('Real Part');
+subplot(222),plot(w,imag(G));
+title('Imaginary Part');
+subplot(223),plot(w,abs(G));
+title('Magnitude');
+subplot(224),plot(w,angle(G));
+title('Phase');

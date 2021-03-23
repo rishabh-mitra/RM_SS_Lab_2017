@@ -1,0 +1,10 @@
+num = [5 20];
+dem = conv(conv([1 1 0],[1 2]),[1 5]);
+sys1 = tf(num,dem);
+kp = dcgain(sys1)
+ess1 = 1/(1+kp)
+s1 = tf([1 0],1);
+kv = dcgain(sys1*s1)
+ess2 = 1/kv
+ka = dcgain(sys1*s1*s1)
+ess3 = 1/ka
